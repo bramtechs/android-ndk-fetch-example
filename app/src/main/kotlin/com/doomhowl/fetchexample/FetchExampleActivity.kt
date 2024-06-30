@@ -11,7 +11,6 @@ class FetchExampleActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityExampleJniBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
         refreshText()
