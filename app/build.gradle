@@ -1,0 +1,70 @@
+plugins {
+    id 'com.android.application'
+    id "org.jetbrains.kotlin.kapt"
+    alias(libs.plugins.jetbrainsKotlinAndroid)
+}
+
+android {
+    namespace 'com.doomhowl.fetchexample'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.doomhowl.fetchexample'
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+    }
+
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.22.1'
+        }
+    }
+
+    buildFeatures {
+        buildConfig true
+        dataBinding true
+        viewBinding true
+    }
+
+    sourceSets {
+        main.kotlin.srcDirs += 'src/main/kotlin'
+        test.kotlin.srcDirs += 'src/test/kotlin'
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            jniDebuggable true
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            debuggable false
+            jniDebuggable false
+            pseudoLocalesEnabled false
+            zipAlignEnabled true
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.appcompat
+    implementation libs.androidx.constraintlayout
+    kapt
+}
