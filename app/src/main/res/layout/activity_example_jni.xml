@@ -7,29 +7,31 @@
     android:layout_height="match_parent"
     tools:context="com.doomhowl.fetchexample.FetchExampleActivity">
 
-    <TextView
-        android:id="@+id/hello_textview"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="@+id/activity_example_jni"
-        app:layout_constraintLeft_toLeftOf="@+id/activity_example_jni"
-        app:layout_constraintRight_toRightOf="@+id/activity_example_jni"
-        app:layout_constraintTop_toTopOf="@+id/activity_example_jni" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/alert_light_frame" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="163dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="282dp"
+        android:layout_width="162dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="48dp"
         android:onClick="onRefreshButtonClicked"
-        android:text="Refresh"
+        android:text="Download"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hello_textview" />
+        tools:layout_editor_absoluteX="155dp" />
+
+    <TextView
+        android:id="@+id/hello_textview"
+        android:layout_width="316dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="16dp"
+        android:text="Image by Christel SAGNIEZ from Pixabay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="78dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

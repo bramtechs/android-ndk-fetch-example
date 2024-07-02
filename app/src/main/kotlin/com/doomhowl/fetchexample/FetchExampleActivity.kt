@@ -1,9 +1,11 @@
 package com.doomhowl.fetchexample
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.doomhowl.fetchexample.databinding.ActivityExampleJniBinding;
+import com.doomhowl.fetchexample.databinding.ActivityExampleJniBinding
 
 class FetchExampleActivity : AppCompatActivity() {
 
@@ -13,20 +15,29 @@ class FetchExampleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityExampleJniBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
-        refreshText()
-    }
-
-    private fun refreshText()  {
-        binding?.let { binding ->
-            binding.helloTextview.text = stringFromJNI()
-        }
     }
 
     fun onRefreshButtonClicked(view: View) {
-        refreshText()
+        val data = downloadImage();
+        when {
+            data == null -> {
+                showErrorToast()
+            }
+            data.isEmpty() -> {
+                showErrorToast()
+            }
+            else -> {
+                val bitmap = BitmapFactory.decodeByteArray(data, 0, data.size)
+                binding!!.imageView.setImageBitmap(bitmap)
+            }
+        }
     }
 
-    external fun stringFromJNI(): String?
+    external fun downloadImage(): ByteArray?
+
+    private fun showErrorToast(){
+        Toast.makeText(this, "Error downloading image", Toast.LENGTH_SHORT).show()
+    }
 
     companion object {
         init {

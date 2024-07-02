@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.22.1)
+set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 project(fetchlib)
 
@@ -15,8 +16,14 @@ else()
     message(FATAL_ERROR "Unknown architecture ${CMAKE_SYSTEM_PROCESSOR}!")
 endif()
 
-add_library(${PROJECT_NAME} SHARED fetch.cpp)
+add_library(${PROJECT_NAME} SHARED fetch.cpp log_forwarder.c)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/libs/include)
 
-message("Linking with curl .a at ${CURL_LIB_PATH}/libcurl.a")
-target_link_libraries(${PROJECT_NAME} android log ${CURL_LIB_PATH}/libcurl.a -lz)
+target_link_libraries(${PROJECT_NAME}
+        android
+        log
+        ${CURL_LIB_PATH}/libcurl.a
+        ${CURL_LIB_PATH}/libcrypto.a
+        ${CURL_LIB_PATH}/libssl.a
+        -lz
+)
