@@ -24,7 +24,7 @@ extern "C" JNIEXPORT jbyteArray BRIDGE_METHOD(downloadImage)(JNIEnv* env, jobjec
   curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0);
 
   if (curl) {
-    curl_easy_setopt(curl, CURLOPT_URL, "https://pixabay.com/get/gc6fdc7ef7d9c40b7270c9b601f950afcc08e5aaa8c8d4eb59ee9e2dc44fb0ef425bfee48c77541ac87ac8f573e8f1635e8389d9440aca6e2e61c9a5503c3c6a3a1a9278610fae9214d39fdf665f8cf4b_1280.jpg");
+    curl_easy_setopt(curl, CURLOPT_URL, "https://doomhowl-interactive.com/files/android-ndk-fetch-example/wolf.jpg");
     curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 1L);
     curl_easy_setopt(curl, CURLOPT_USERAGENT, "curl/7.42.0");
     curl_easy_setopt(curl, CURLOPT_MAXREDIRS, 50L);
