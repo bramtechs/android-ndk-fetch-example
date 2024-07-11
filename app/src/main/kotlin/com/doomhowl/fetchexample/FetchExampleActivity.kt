@@ -1,13 +1,13 @@
 package com.doomhowl.fetchexample
 
+import android.app.Activity
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.doomhowl.fetchexample.databinding.ActivityExampleJniBinding
 
-class FetchExampleActivity : AppCompatActivity() {
+class FetchExampleActivity : Activity() {
 
     private var binding: ActivityExampleJniBinding? = null
 
