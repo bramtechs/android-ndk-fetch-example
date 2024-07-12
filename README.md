@@ -4,13 +4,15 @@
 Checklist:
 - [X] Working HTTP
 - [X] Working HTTPS **(unsafe: SSL certificate is ignored for now...)**
-- [ ] Abstract libcurl boilerplate into simple library
 - [ ] Test on all architectures
 ---
 
 Android project using C++ and libcurl to fetch remote content.
 
 Posted on Github as online documentation is very sparse on this topic.
+
+**UPDATE: After making this repo, I came across an offical Android NDK example named curl-ssl:<br>
+https://github.com/android/ndk-samples/tree/3a18f1d90149d9959bff34e7ba2cdc927a901d58/prefab/curl-ssl**
 
 ## Screenshots
 <img src="./misc/app_screenshot.png" width="300">
