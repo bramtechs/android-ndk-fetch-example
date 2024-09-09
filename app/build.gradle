@@ -10,10 +10,8 @@ android {
 
     defaultConfig {
         applicationId 'com.doomhowl.fetchexample'
-        minSdk 17
+        minSdk 21
         targetSdk 33
-        ndkVersion = "22.1.7171670"
-
         versionCode 1
         versionName "1.0"
     }
@@ -65,5 +63,8 @@ android {
 }
 
 dependencies {
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.appcompat
+    implementation libs.androidx.constraintlayout
     kapt
 }

@@ -1,31 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_example_jni"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="com.doomhowl.fetchexample.FetchExampleActivity">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:src="@android:drawable/btn_dialog" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/alert_light_frame" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="188dp"
-        android:layout_height="64dp"
+        android:layout_width="162dp"
+        android:layout_height="45dp"
         android:layout_marginBottom="48dp"
         android:onClick="onRefreshButtonClicked"
-        android:text="Download" />
+        android:text="Download"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="155dp" />
 
     <TextView
         android:id="@+id/hello_textview"
         android:layout_width="316dp"
         android:layout_height="32dp"
         android:layout_marginBottom="16dp"
-        android:text="Image by Christel SAGNIEZ from Pixabay" />
+        android:text="Image by Christel SAGNIEZ from Pixabay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="78dp" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

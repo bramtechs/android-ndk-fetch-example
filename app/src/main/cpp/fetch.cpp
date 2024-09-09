@@ -4,7 +4,6 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <vector>
 
 #define BRIDGE_METHOD(X) Java_com_doomhowl_fetchexample_FetchExampleActivity_##X
 
